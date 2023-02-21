@@ -19,7 +19,7 @@
     "grammars": [{
       "language": "prelect",
       "scopeName": "source.prelect",
-      "path": "./syntaxes/prelect.tmLanguage"
+      "path": "./syntaxes/prelect.tmLanguage.json"
     }]
   },
   "repository": {

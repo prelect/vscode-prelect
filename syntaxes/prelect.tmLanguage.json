@@ -1,0 +1,32 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PRELECT",
+	"scopeName": "source.prelect",
+	"patterns": [
+		{
+			"include": "#keyword"
+		},
+		{
+			"include": "#string"
+		}
+	],
+	"repository": {
+		"keyword": {
+			"patterns": [{
+			"name": "keyword.control.prelect",
+				"match": "<-"
+			}]
+		},
+		"string": {
+			"name": "string.prelect",
+			"begin": "`",
+			"end": "`",
+			"patterns": [
+				{
+					"name": "constant.character.escape.prelect",
+					"match": "\\\\."
+				}
+			]
+		}
+	}
+}
