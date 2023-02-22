@@ -1,21 +1,86 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "PRELECT",
+	"version": "1.0.0",
+	"uuid": "8e5f0ad4-618f-4933-a92c-ee58d06c633e",
 	"scopeName": "source.prelect",
 	"patterns": [
 		{
-			"include": "#keyword"
+			"include": "#comment"
+		},
+		{
+			"include": "#constant"
+		},
+		{
+			"include": "#number"
 		},
 		{
 			"include": "#string"
+		},
+		{
+			"include": "#identifier"
+		},
+		{
+			"include": "#identifier_negation"
+		},
+		{
+			"include": "#identifier_bracketed"
+		},
+		{
+			"include": "#identifier_hash"
+		},
+		{
+			"include": "#identifier_string_type"
+		},
+		{
+			"include": "#identifier_ats"
+		},
+		{
+			"include": "#type_custom"
+		},
+		{
+			"include": "#type_bool"
+		},
+		{
+			"include": "#type_number"
+		},
+		{
+			"include": "#type_string"
+		},
+		{
+			"include": "#keyword"
 		}
 	],
 	"repository": {
-		"keyword": {
-			"patterns": [{
-			"name": "keyword.control.prelect",
-				"match": "<-"
-			}]
+		"comment": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.prelect"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.prelect"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.prelect"
+						}
+					},
+					"match": "(//).*$\\n?",
+					"name": "comment.line.prelect"
+				}
+			]
+		},
+		"constant": {
+			"match": "(!!?+|@@)(?!\\()(?!\\@)",
+			"name": "constant.language.prelect"
+		},
+		"number": {
+			"match": "\\b([1-9][0-9]*|[0])(\\.[0-9]+)?\\b",
+			"name": "constant.numeric.prelect"
 		},
 		"string": {
 			"name": "string.prelect",
@@ -27,6 +92,52 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"identifier": {
+			"match": "(?<=\\.|\\(|\\)|\\{|}|\\s|^)(?!\\@)([^\\d\\{\\}\\)\\(\\<\\>\\.\\@\\$#:`])([^\\{}\\)\\(\\<\\>\\.\\@\\$#:`])*(?=\\.|\\(|\\)|\\{|}|\\s|:|$)",
+			"name": "variable.prelect"
+		},
+		"identifier_negation": {
+			"match": "!!?(?!:)\\(",
+			"name": "variable.prelect"
+		},
+		"identifier_bracketed": {
+			"match": "(?<=\\.|\\(|\\)|\\{|}|\\s|^)(?!\\@)([^\\d\\{\\}\\)\\(\\.\\@\\$#:`\\-])([^\\{}\\)\\(\\.\\@\\$#:`\\-])*(?=\\.|\\(|\\)|\\{|}|\\s|:|$)",
+			"name": "variable.prelect"
+		},
+		"identifier_hash": {
+			"match": "##?(?!:)\\(",
+			"name": "variable.prelect"
+		},
+		"identifier_string_type": {
+			"match": "\\$\\$?(?!:)\\(",
+			"name": "variable.prelect"
+		},
+		"identifier_ats": {
+			"match": "\\@{1,3}(?!:)\\(",
+			"name": "variable.prelect"
+		},
+		"type_custom": {
+			"match": "(?<=\\.|\\(|\\)|\\{|}|\\s|^)\\@([^\\d\\{\\}\\)\\(\\<\\>\\.\\@\\$#:`])([^\\{}\\)\\(\\<\\>\\.\\@\\$#:`])*(?=\\.|\\(|\\)|\\{|}|\\s|:|$)",
+			"name": "support.type.prelect"
+		},
+		"type_bool": {
+			"match": "(^|\\s)&($|\\s|\\)|\\})",
+			"name": "support.type.prelect"
+		},
+		"type_number": {
+			"match": "(^|\\s)##?($|\\s|\\)|\\})",
+			"name": "support.type.prelect"
+		},
+		"type_string": {
+			"match": "(^|\\s)\\$($|\\s|\\)|\\})",
+			"name": "support.type.prelect"
+		},
+		"keyword": {
+			"patterns": [{
+			"name": "keyword.control.prelect",
+			"match": "(^|\\s)<-($|\\s|\\)|\\})"
+			}]
 		}
 	}
 }
