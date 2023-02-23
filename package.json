@@ -1,38 +1,91 @@
 {
   "name": "vscode-prelect",
-  "displayName": "vscode-prelect",
+  "displayName": "PRELECT",
+  "publisher": "prelect",
   "version": "1.0.0",
   "description": "PRELECT language support for Visual Studio Code",
+  "main": "./client/out/extension.js",
   "engines": {
     "vscode": "^1.75.0"
   },
   "categories": [
     "Programming Languages"
   ],
+  "scripts": {
+    "compile": "tsc -b",
+    "watch": "tsc -b -w"
+  },
   "contributes": {
-    "languages": [{
-      "id": "prelect",
-      "aliases": ["PRELECT", "prelect"],
-      "extensions": ["._pl"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "prelect",
-      "scopeName": "source.prelect",
-      "path": "./syntaxes/prelect.tmLanguage.json"
-    }]
+    "configuration": {
+      "type": "object",
+      "title": "PRELECT LSP configuration",
+      "properties": {
+        "prelectClient.enable": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "description": "Controls the enablement."
+        },
+        "prelectClient.options": {
+          "scope": "resource",
+          "type": "object",
+          "default": {},
+          "description": "Additional options."
+        },
+        "prelectClient.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VSCode and the language server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "prelect",
+        "aliases": [
+          "PRELECT",
+          "prelect"
+        ],
+        "extensions": [
+          "._pl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "prelect",
+        "scopeName": "source.prelect",
+        "path": "./syntaxes/prelect.tmLanguage.json"
+      }
+    ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prelect/vscode-prelect.git"
   },
   "keywords": [
-    "prelect"
+    "prelect",
+    "multi-root ready"
   ],
   "author": "frithsun",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/prelect/vscode-prelect/issues"
   },
-  "homepage": "https://github.com/prelect/vscode-prelect#readme"
+  "homepage": "https://github.com/prelect/vscode-prelect#readme",
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "@types/vscode": "^1.75.1",
+    "typescript": "^4.9.5"
+  }
 }
