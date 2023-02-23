@@ -1,0 +1,3 @@
+[submodule "prelect"]
+	path = prelect
+	url = https://github.com/prelect/prelect.git
