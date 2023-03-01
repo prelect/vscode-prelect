@@ -1,3 +1,10 @@
 {
-    "editor.rulers": [50, 80, 100, 120]
+	"editor.rulers": [
+		80
+	],
+	"editor.detectIndentation": false,
+	"editor.autoIndent": "full",
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"editor.indentSize": 1,
 }
