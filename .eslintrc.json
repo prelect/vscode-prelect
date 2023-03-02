@@ -1,0 +1,20 @@
+{
+  "extends": ["airbnb", "prettier", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "node/no-missing-import": "off",
+		"node/no-missing-require": "off",
+    "node/no-unpublished-import": "off",
+    "no-unused-vars": "warn",
+    "class-methods-use-this": "off",
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }]
+  },
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    }
+  }
+}
