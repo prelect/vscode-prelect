@@ -5,9 +5,8 @@
   "version": "1.0.0",
   "description": "PRELECT language support for Visual Studio Code",
   "main": "./client/extension.js",
-  "type": "module",
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.76.0"
   },
   "categories": [
     "Programming Languages"
@@ -37,7 +36,7 @@
             "messages",
             "verbose"
           ],
-          "default": "off",
+          "default": "messages",
           "description": "Traces the communication between VSCode and the language server."
         }
       }
@@ -79,5 +78,17 @@
   "homepage": "https://github.com/prelect/vscode-prelect#readme",
   "dependencies": {
     "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.14.2",
+    "eslint": "^8.35.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "typescript": "^4.9.5"
   }
 }

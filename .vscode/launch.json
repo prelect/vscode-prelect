@@ -4,12 +4,10 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "Launch Client",
+			"name": "Launch PRELECT LSP Client",
 			"runtimeExecutable": "${execPath}",
 			"args": ["--extensionDevelopmentPath=${workspaceRoot}" ],
-			"autoAttachChildProcesses": true,
-			"sourceMaps": true,
-			"outFiles": ["${workspaceRoot}/client/out/**/*.js"]
+			"autoAttachChildProcesses": true
 		}
 	]
 }
