@@ -37,11 +37,6 @@
 					"name": "comment.block.prelect"
 				},
 				{
-					"captures": {
-						"1": {
-							"name": "punctuation.definition.comment.prelect"
-						}
-					},
 					"match": "(//).*$\\n?",
 					"name": "comment.line.prelect"
 				}
